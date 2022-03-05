@@ -1,0 +1,233 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+    <title>Covid Diagnosis</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <!--Nav bar-->
+        <nav class="navbar navbar-expand-lg nav-back fixed-top" id="navId">
+            <div class="container">
+                <a href="#" class="navbar-brand nb0 h1">
+                    <img class="d-line-block align-top" src="" height="30px" width="30px">
+                    CT Diagnosis
+                </a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#NavBarId"
+                    aria-controls="NavBarId" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="myNavBar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a href="#" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="#Contact" class="nav-link">Contact</a>
+                        </li>
+                        <li class="nav-item active">
+                            <!--disabled for not being able to click on it-->
+                            <a href="#" class="nav-link">About us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--End of Nav Bar-->
+        <!--background image-->
+        <section id="bgImage">
+            <div class="container text-center position-relative">
+                <h1>24/7 Care is available</h1>
+            </div>
+        </section>
+        
+        
+
+
+        <!-- ======= About Section ======= -->
+        <section class="about-section clearfix py-5">
+            <div class="container">
+                <div class="about">
+                    <img class="about-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'css/doctor_and_patient.jpg' %}" alt="">
+                    <div class="about-text left-0 text-center bg-faded p-5 rounded">
+                        <h2 class="about-heading mb-4">
+                            <span class="about-heading-upper">Welcome</span>
+                            <span class="about-heading-lower">To Our Website</span>
+                        </h2>
+                        <p class="mb-3">This website is designed to help doctors and healthcare workers in the covid diagnosis task. It is meant to accept specific input image files which is nifti files, since clinical imaging data are typically stored and transferred in the DICOM format dicom to nifti conversion is necessary, in case you don't have the files converted, you may find a software that does the conversion for you here. <br> click on the button.
+        
+                        </p>
+                        <div class="about-button mx-auto">
+                            <a class="btn btn-color btn-lg" href="#">Know More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--end of about section--> 
+		{% block content%}
+
+    <section>
+            <div class="container">
+                <div class="about">
+                    <div class="about-text left-0 text-center bg-faded p-5 rounded">
+                        <h2 class="about-heading mb-4">
+                            Evaluation
+                        </h2>
+                        <p class="mb-3">
+                            choose an image file to test it!
+                        </p>
+                    </div>
+                </div>
+                <br><br><br><br><br><br> <br><br><br><br><br>
+                <form method="post" enctype="multipart/form-data" action="predictImage">{% csrf_token %}
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input name="filePath" type="file" class="custom-file-input" id="customFileInput" aria-describedby="customFileInput">
+                            <label class="custom-file-label" for="customFileInput">Select file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <input type="submit" value="Upload"></div>
+                        </div>
+                    </div>
+                
+            <!--this section must be for results-->
+				<!--<img src={{filePathName}} alt='imagename'>
+				{{filePathName}}-->
+				
+				
+					<div class="about-text left-0 text-center bg-faded p-5 rounded">
+                        <h2 class="about-heading mb-4">
+                            <span class="about-heading-upper">Results</span>
+                        </h2>
+                        <p class="mb-3"> This model is.. {{scores1}} percent confident that CT scan is normal <br/> 
+						This model is.. {{scores2}} percent confident that CT scan is abnormal
+        
+                        </p>
+                    </div>
+				
+
+
+
+
+
+
+
+        </div>
+    </section>
+	{% endblock %}
+    
+    <!--tools used section-->
+
+    <!--end tools used section-->
+
+        <!-- ======= Contact Section ======= -->
+        <section class="contact" id="Contact">
+            <div class="container">
+        
+                <div class="section-title text-center mt-5">
+                    <h2>Contact</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, accusamus.</p>
+                </div>
+        
+                <div class="row">
+        
+                    <div class="col-lg-6">
+        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="contact-box">
+                                    <i class="fas fa-map-signs"></i>
+                                    <h3>Address</h3>
+                                    <p>Lorem Brasilia Zip code: 45687 </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-box mt-4">
+                                    <i class="fas fa-envelope"></i>
+                                    <h3>Email Us</h3>
+                                    <p>test@example.com<br>contact@example.com</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-box mt-4">
+                                    <i class="fas fa-phone"></i>
+                                    <h3>Call Us</h3>
+                                    <p>+213 66 123 4789 <br>+213 66 123 4567</p>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+        
+                    <div class="col-lg-6">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
+        
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email">
+        
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" rows="5"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+        
+                </div>
+        
+            </div>
+        </section>
+        <!-- End Contact Section -->
+        <!-- Footer-->
+        <footer class="footer py-4 mt-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-left">Copyright © Covid Diagnosis on CT scans 2020</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-back btn-social mx-2" href="#!">
+                            <i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-back btn-social mx-2" href="#!">
+                            <i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-back btn-social mx-2" href="#!">
+                            <i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-right">
+                        <a class="mr-3 text" href="#!">Privacy Policy</a>
+                        <a href="#!" class="text">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

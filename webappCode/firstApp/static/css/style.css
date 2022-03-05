@@ -1,0 +1,177 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.nav-back{
+    background: rgba(17, 219, 207,0.8);
+    color: #fff;
+}
+.navbar-brand{
+    color: #000;
+}
+.navbar-brand:hover{
+    color: #fff;
+}
+.nav-link{
+    color: #000;
+}
+.nav-link:hover{
+    color:#fff;
+}
+.navbar-toggler{
+    outline: none!important;
+}
+/*background image section */
+#bgImage{
+    width: 100%;
+    height: 80vh;
+    background: url("medical-imaging.jpg") center center;
+    background-size: cover;
+    position: relative;
+    /*opacity: 50%;*/
+}
+#bgImage .container {
+    padding-top: 80px;
+}
+#bgImage:before {
+    content: "";
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+#bgImage h1 {
+    margin: 0 0 10px 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #fff;
+}
+#inputImage {
+    width: 30%;
+    margin-top: 5.9em;
+}
+/*----about -section*/
+.about-section {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.about-heading {
+    text-transform: uppercase;
+}
+
+.about-heading .about-heading-upper {
+    display: block;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.about-heading .about-heading-lower {
+    display: block;
+    font-size: 38px;
+    font-weight: 100;
+}
+
+.bg-faded {
+    background-color: rgba(17, 219, 207,0.8);
+}
+
+.about-button .btn-color{
+    background: #03a59a;
+    font-weight: bold;
+    color: #fff;
+}
+.about {
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    .about .about-img {
+        width: 75%;
+        float: right;
+    }
+    .about .about-text {
+        left: 0;
+        width: 60%;
+        margin-top: 3rem;
+        position: absolute;
+    }
+    .about .about-text .about-button {
+        width: 100%;
+        left: 0;
+        position: absolute;
+        bottom: -2rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .about .about-text {
+    width: 45%;
+    }
+}
+
+/* 
+/*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+.contact-box {
+    color: #000;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(65, 76, 100, 0.05);
+    padding: 20px 0 30px 0;
+    background:#11dbcf;
+}
+
+.contact-box i {
+    font-size: 32px;
+    color: #fff;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.contact-box h3 {
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.contact-box p {
+    padding: 0;
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.contact button{
+    background: #11dbcf;
+    border: none;
+    padding: 10px;
+}
+
+.contact button:hover{
+    background: #00d9ff;
+    color: #fff;
+} 
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer {
+    text-align: center;
+    font-size: 0.9rem;
+    background:rgba(17, 219, 207,0.8);
+}
+.footer .btn-back{
+    background: #fff;
+    color: #00d9ff;
+}
+.footer .text{
+    color: #000;
+}
+@media (max-width: 1000px){
+    nav, section {
+    float: none;
+    width: 100%;
+    }
+}
